@@ -37,6 +37,7 @@ class Item:
 
 pc = Item('Laptop', 45000, 5)
 print(f'{pc.qty} pc Total Price {pc.total_price()}')
+pc.rate = .45
 print(f'Discount: {pc.apply_discount()}')
 '''
 pc.__dict__ # Return attribute at the instance level
