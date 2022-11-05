@@ -25,9 +25,14 @@ class Item:
     def total_price(self):
         return self.price * self.qty
 
-    # accessing class attributes in a method at class level
+    # accessing class attributes in a method at class level: Item.rate;
+    # but if we access class attribute at instance level: self.rate; then -
+    # we can easily change the value of the rate at instance level
+    # therefore it is good practice to access class attribute at instance level if-
+    # we have plan to change the value of the attribute.
     def apply_discount(self):
-        self.price = self.price * Item.rate
+        self.price = self.price * self.rate
+        return self.price
 
 
 pc = Item('Laptop', 45000, 5)
