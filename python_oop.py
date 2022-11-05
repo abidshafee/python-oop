@@ -9,27 +9,35 @@ Original file is located at
 
 
 class Item:
+    # Class Attribute
+    rate = 0.3
+
     def __init__(self, name: str, price: float, qty=0):
         # Run Validation to receive argument
         assert price >= 0, f"Price {price} is less than zero"
         assert qty >= 0, f"Quantity: {qty} is less than zero"
 
-        # instance Attribute - self object
+        # instance Attributes - self object
         self.name = name
         self.price = price
         self.qty = qty
 
     def total_price(self):
-      return self.price * self.qty
+        return self.price * self.qty
+
+    # accessing class attributes in a method at class level
+    def apply_discount(self):
+        self.price = self.price * Item.rate
 
 
 pc = Item('Laptop', 45000, 5)
 print(f'{pc.qty} pc Total Price {pc.total_price()}')
-
-pc.__dict__
-
-Item.__dict__
-
+print(f'Discount: {pc.apply_discount()}')
+'''
+pc.__dict__ # Return attribute at the instance level
+Item.__dict__ # return attributes of the Item class
 pc.price
+'''
 
-pc.total_price()
+print(pc.rate)  # Accessing class attribute from instance level
+print(Item.rate)  # class attribute from class level
