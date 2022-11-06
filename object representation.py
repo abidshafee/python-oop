@@ -4,7 +4,7 @@ class myItem:
     # Class Attribute
     discount_rate = 0.3
     all_items = [] # Adding all items (instances) to this list
-    def __init__(self, item: str, price: int, qty = 0):
+    def __init__(self, item: str, price: float, qty = 0):
         self.item = item
         self.price = price
         self.qty = qty
@@ -35,18 +35,27 @@ class myItem:
     @classmethod
     def read_from_csv(cls):
         with open('data.csv', 'r') as f:
-            record = csv.reader(f)
-            pass
+            reader = csv.DictReader(f)
+            item_data = list(reader) # converting dictionary into list
+
+        for it in item_data:
+            # print(it)
+            # Creating instances with that data in csv
+            myItem(
+                item = it.get('item'),
+                price = it.get('price'),
+                qty = it.get('qty')
+            )
 
 
-phone = myItem("Phone", 35000, 10)
-laptop = myItem("Laptop", 65000, 5)
-cable = myItem("Cable", 1300, 5)
-mouse = myItem("Mouse", 450, 18)
-keyword = myItem("Keyboard", 800, 30)
+# phone = myItem("Phone", 35000, 10)
+# laptop = myItem("Laptop", 65000, 5)
+# cable = myItem("Cable", 1300, 5)
+# mouse = myItem("Mouse", 450, 18)
+# keyword = myItem("Keyboard", 800, 30)
 
 # In "all_items" list our object is appended as they created
-print(myItem.all_items)
+# print(myItem.all_items)
 
 # Accessing and representing objects without __repr__ method
 # for object in myItem.all_items:
@@ -54,3 +63,4 @@ print(myItem.all_items)
 
 # Instantiating Class Method
 myItem.read_from_csv()
+print(myItem.all_items)

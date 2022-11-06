@@ -1,6 +1,6 @@
-Item, Price, Qty
-"Phone", 54000, 10
-"Laptop", 65000, 5
-"Cable", 1300, 5
-"Mouse", 450, 19
-"Keyboard", 800, 30
+item,price,qty
+"Phone",54000,10
+"Laptop",65000,5
+"Cable",1300,5
+"Mouse",450,19
+"Keyboard",800,30
