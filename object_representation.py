@@ -24,12 +24,15 @@ class myItem:
 
     # Object Representation - Magic Method -> Representing class objects
     # Using this __repr__ method we've control to represent our object as we want
+    # The __repr__ method can autometically detect the number of objects we've created from the class
     def __repr__(self):
         return f"Item('{self.item}', {self.price}, {self.qty})"
 
-    # Now we need to create a method that doesn't need instanciation
-    # so we'll create a classmethod that doesn't get instanciated -
-    # as the objet ob the class is created
+    # Now we need to create a method that doesn't need instanciation -
+    # Rather this method will instanciate the object itself
+    # so we need to create a classmethod that doesn't get instanciated -
+    # as the objet of the class is created
+    # we can instanciate classmethod using the class name
     # Here what cls indicates is when we call the class method -
     # the class itself is passed as the firt argument in the background
     @classmethod
